@@ -4,7 +4,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return render(request, "index.html")
+    variable = {
+        "body":"CINS465 Hello World"
+    }
+    return render(request, "index.html", context=variable)
     #return HttpResponse("CINS465 Hello World")
 
 def about(request):
