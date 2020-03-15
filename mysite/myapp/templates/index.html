@@ -14,9 +14,25 @@
 </head>
 
 <body>
+    <h1>Models and stuff</h1>
+    
     
     <div>
         <p class ="intro"> {{body}}</p>
+        <p> {{ summary_info }}</p>
+        <p>Above is what you DONT do</p> 
+        {% if summary_info %}
+        <ul>
+        {% for i in summary_info %}
+        <li>{{ i.summary }}</li>
+        {% endfor %}
+        {% endif %}
+        </ul>
+        <form action ="/" method="post">
+            {% csrf_token %}
+            {{ form }}             
+             <input type="submit" class="button" value ="Add Name">
+            </form>
         
     </div>
 
