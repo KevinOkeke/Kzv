@@ -9,6 +9,7 @@
 
     <title> Templates Practice </title>
     <link rel ="stylesheet" href="{% static "/css/index.css" %}">
+    <link rel ="stylesheet" href="{% static "/css/app.js" %}">
             
     
 </head>
@@ -33,9 +34,16 @@
             {{ form }}             
              <input type="submit" class="button" value ="Add Name">
             </form>
+
+            <button type="button" onclick="">Click this</button>
         
     </div>
 
+        <h2>This is an display of javascript</h2>
+        <p>This javascript just alerts the user when the button is pressed. Ideally it could be tied to some error alert or completion confirmation after a form is filled out</p>
+        <button onclick="Alerting()"">Annoy</button>
+
+        <script>function Alerting() { alert("My purpose is to annoy"); }</script>
 
 
 </body>
