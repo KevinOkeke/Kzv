@@ -59,17 +59,3 @@ class TopicForm(forms.Form):
         public_topic_instance.summary = self.cleaned_data["public_topic"]
         public_topic_instance.save()
         return public_topic_instance
-
-
-    
-
-
-    # def save(self, commit=True)
-    #     profile_mod = self.instance
-    #     profile_mod.age = self.cleaned_data['age']
-    #     profile_mod.location = self.cleaned_data['location']
-    #     profile_mod.bio = self.cleaned_data['bio']
-
-    #     if commit:
-    #         profile_mod.save()
-    #     return profile_mod

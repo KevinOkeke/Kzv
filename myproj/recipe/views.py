@@ -102,24 +102,8 @@ def guestpage_view(request, *args, **kwargs):
 
 
 def personal_view(request, *args, **kwargs):
-        age = ''
-        location = ''
-        bio = ''
-        
-        
-        if request.method == 'POST':
-                form = forms.InfoForm(request.POST)
-
-                if form.is_valid():
-                        profile = Profile_model()
-                       
-                        age = form.cleaned_data.get('age')
-                        location = form.cleaned_data.get('location')
-                        bio = form.cleaned_data.get('bio')
-                       
-                        return redirect ('personal')
-        else:
-                form = forms.InfoForm()
+       
+       
 
         
         context = {
@@ -154,43 +138,34 @@ def personal_view(request, *args, **kwargs):
 
 @login_required
 def my_profile_view(request):
-        
-        current_user = request.user
-        id = current_user.id
-        person = Profile_model()
 
-        form = Profile_modelForm(request.POST)
-
-        if form.is_valid():
-                person.user = current_user
-                
-       
-        context = {
-                'form':form,
-                'u_id':id
-        }
-        
+        profileform = Profile_modelForm(request.POST)        
                        
-        # if request.method == 'POST':
-        #         profileform = Profile_modelForm(request.POST, instance=request.user)
+        if request.method == 'POST':
+                # profileform = Profile_modelForm(request.POST, instance=request.user)
         
-        #         if profileform.is_valid():
+                if profileform.is_valid():
+                        p = Profile_model()
+                        profile = profileform.save(commit=False)
+                        p.user = request.user
+                        p.age = profileform.cleaned_data.get('age') 
+                        p.location = profileform.cleaned_data.get('location')
+                        p.bio = profileform.cleaned_data.get('bio')                    
+                        p.save()
+                        
+                        
+                        return redirect('profile')
+        else:
+                profileform = Profile_modelForm()               
 
-        #                 profile = profileform.save(commit=False)
-        #                 profile.user = request.user
-        #                 profile.save()
-        #                 return redirect('profile')
-        # else:
-        #         profileform = Profile_modelForm()               
-
-        # output = Profile_model    
+        output = Profile_model    
         
-        # profile_context = {
-        #     'profileform':profileform,
-        #     'output':output,
+        context = {
+            'profileform':profileform,
+            'output':output,
             
                      
-        # }
+        }
 
         
                
