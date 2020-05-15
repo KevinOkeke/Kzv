@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+
+{% block content %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-8">
+
+        <p>{{u_id}}</p>
+
+        <form action ="" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}             
+           <input type="submit" class="button" value ="Save">
+          </form>
+  
+          <button type="button" onclick="">Click this</button>        
+  
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <!-- <p>form 2</p>
+
+    <form action ="" method="post">
+        {% csrf_token %}
+        {{ profileform.as_p }}             
+         <input type="submit" class="button" value ="Save">
+        
+
+        <button type="button" onclick="">Click this</button>
+      </form>
+
+
+        <p>{{user.user_profilemodelform.location}}</p>
+        <p>{{output.age}}</p> -->
+
+{% endblock %}

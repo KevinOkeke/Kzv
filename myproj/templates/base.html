@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
+        <title>
+        {% block title %}
+        Recipes for you and me 
+        {% endblock %} 
+        </title>      
+        
+
+        {# Base Foundation CSS #}
+    <!-- {% block foundation_css %} -->
+    <link rel ="stylesheet" href="{% static "/css/foundation.css" %}">    
+    <!-- <link rel ="stylesheet" href="{% static "/css/app.js" %}"> -->    
+    <link rel ="stylesheet" href="{% static "/css/app.css" %}">
+    
+    <!-- {% endblock foundation_css %}  -->
+    
+    {% include 'navbar.html' %}
+    
+    </head>
+ 
+
+
+<body>
+    
+        
+    {% block content %}
+    stuff to remove
+    {% endblock %}
+        
+
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+</body>
+
+</html>

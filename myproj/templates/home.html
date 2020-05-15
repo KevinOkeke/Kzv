@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    <div class="text-center" id="header">
+
+    <h1>{{ home_header }}</h1>
+
+    </div>
+
+
+{% if user.is_authenticated %}
+    <div class="text-center" id="username">
+        <p>Welcome {{user.username}}, Lets make something special<p>
+        
+{% endif %}
+    </div>
+
+    <div class="text-center">
+
+    <img class="thumbnail" src="{% static "myproj/bk_img_.jpg" %}">
+    <img class="thumbnail" src="{% static "myproj/pasta.jpeg" %}">
+    <img class="thumbnail" src="{% static "myproj/zucchini.jpeg" %}">
+
+    </div>
+
+    {% if user.is_authenticated %}
+
+<h4 class="text-center"> Not sure what to make? head over to the <a href="{% url 'guests'  %}">guests</a> page to get, or even give some ideas </h4>
+<!-- 
+<ul>
+    {% for favorites in count %}
+    <li>{{forloop.counter}} - {{obj.title}}</li>
+    {% endfor %}
+</ul>
+
+    <h1>User data from templates</h1>
+    <p>{{ my_recipe }}</p>
+    <p>{{ my_total }}</p>
+    <p>{{ object.title }}</p>
+    <p>{{ object.description }}</p> -->
+
+    {% endif %}
+
+{% endblock %}
+
+{% if variable %}
+{% endif %}
+
+</div>

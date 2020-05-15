@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>How to page via templates</h1>
+
+
+
+
+<h1 class="text-center">{{ recipe_instr.title}}</h1>
+<h1 class="text-center"><img class="thumbnail" src="{{ recipe_instr.images.url }}"></h1>
+
+<p>Created by <a href="{% url 'popular'  %}"> {{recipe_instr.user}}</p></a>
+
+
+<p>What we are making: {{recipe_instr.description}}</p>
+<p>What we will need: {{recipe_instr.ingredients}}</p>
+<p>Step by step: {{recipe_instr.directions}}</p>
+<p>Prep time: {{recipe_instr.cook_time}} minutes </p>
+
+
+
+
+
+
+{% endblock %}

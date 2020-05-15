@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Create an Account {% endblock %}
+
+
+{% block content %}
+
+<h1>Create page via templates</h1>
+
+<h2>Sign up</h2>
+
+
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="cell small-8">
+      <form class ="signin-form" action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- {{ profile_form.as_p }} -->
+        <button type="button " class="button large" class=".submit">Create</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}}

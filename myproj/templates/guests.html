@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+    Tell us!
+    {% endblock %} 
+
+{% block content %}
+<h1 class="text-center">Give Some of your ideas for us to cook up</h1>
+
+
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-8">
+
+        {% if topic_info %}
+              <ul>
+                {% for i in topic_info %}
+                <li>{{ i.public_topic }}</li>
+                {% endfor %}
+                {% endif %}
+              </ul>
+              
+              <form action ="" method="POST">
+                
+                {{ form }}
+                {% csrf_token %}          
+                 <input type="submit" class="button" value ="Add Topic">
+                 <!-- <button type="button " class="button large" class=".submit" value="topic">Add topic</button> -->
+                </form>
+        {% endblock %}
+        
+        
+  
+      </div>
+    </div>
+  </div>
+
+
+
+

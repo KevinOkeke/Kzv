@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Post your own recipes to share</h1>
+
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-8">
+        <form action="" enctype='multipart/form-data' method ="post">
+          {{ rform.as_p }}          
+          {% csrf_token %}
+          <button type="button " class="button large" class=".submit" action="{% url 'recipes' %}">Create</button>
+          </form>
+        
+  
+      </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

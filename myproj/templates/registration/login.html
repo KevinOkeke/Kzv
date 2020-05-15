@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Login in here {% endblock %}
+
+
+{% block content %}
+
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-8">
+        {%if form.errors %}
+        <p> Error please make sure all inputs are valid</p>
+        {% endif %}
+
+
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}       
+       
+       
+        <p>Username: {{ form.username }}</p>
+        <p>Password: {{ form.password }}</p>
+    
+    
+        <button class="button" class=".submit">Login</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
