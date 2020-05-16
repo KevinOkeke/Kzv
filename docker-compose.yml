@@ -11,18 +11,18 @@ links:
 command: python /code/myproj/manage.py runserver 0.0.0.0:8000
 
 redis:
-image: redis
-expose:
+   image: redis
+   expose:
     - 6379
 
 nginx:
-restart: always
-build: ./nginx/
-depends_on:
-    - web
-ports:
-    - "80:80"
-    # - "443:443"
+   restart: always
+   build: ./nginx/
+   depends_on:
+       - web
+   ports:
+       - "80:80"
+      # - "443:443"
 #     volumes:
 #        - ./myproj/myapp/static:/static
 links:
