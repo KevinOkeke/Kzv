@@ -1,21 +1,32 @@
-- redis:redis
-# user: "1000:1000"
-command: python /code/myproj/manage.py runserver 0.0.0.0:8000
+#adapted from example in docker documentation
+version: '3'
 
-redis:
-   image: redis
-   expose:
-    - 6379
+services:
+  web:
+    build: .
+    volumes:
+       - .:/code
+    expose:
+       - 8000
+    links:
+       - redis:redis 
+    # user: "1000:1000"
+    command: python /code/mysite/manage.py runserver 0.0.0.0:8000
 
-nginx:
-   restart: always
-   build: ./nginx/
-   depends_on:
-       - web
-   ports:
-       - "80:80"
-      # - "443:443"
+  redis:
+    image: redis
+    expose:
+        - 6379
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    depends_on:
+        - web
+    ports:
+        - "80:80"
+        # - "443:443"
 #     volumes:
-#        - ./myproj/myapp/static:/static
-links:
-    - web:web
+#        - ./mysite/myapp/static:/static
+    links:
+        - web:web
