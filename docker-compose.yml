@@ -1,12 +1,4 @@
-build: .
-volumes:
-   - .:/code
-ports:
-   - 8000:8000
-expose:
-   - 8000
-links:
-   - redis:redis 
+- redis:redis
 # user: "1000:1000"
 command: python /code/myproj/manage.py runserver 0.0.0.0:8000
 
@@ -26,4 +18,4 @@ nginx:
 #     volumes:
 #        - ./myproj/myapp/static:/static
 links:
-    - web:web 
+    - web:web
