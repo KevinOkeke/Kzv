@@ -8,25 +8,14 @@ services:
        - .:/code
     expose:
        - 8000
+    environment:
+       - GOOGLE_APPLICATION_CREDENTIALS=/code/myproj/My First Project-9b409ea0537e.json
     links:
        - redis:redis 
     # user: "1000:1000"
-    command: python /code/mysite/manage.py runserver 0.0.0.0:8000
+    command: python /code/myproj/manage.py runserver 0.0.0.0:8000
 
   redis:
     image: redis
     expose:
         - 6379
-
-  nginx:
-    restart: always
-    build: ./nginx/
-    depends_on:
-        - web
-    ports:
-        - "80:80"
-        # - "443:443"
-#     volumes:
-#        - ./mysite/myapp/static:/static
-    links:
-        - web:web
